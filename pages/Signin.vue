@@ -11,7 +11,7 @@
           <h2 class="text-xl font-bold mb-4 font-Poppins text-center">
             Sign In
           </h2>
-          <form>
+          <form @submit.prevent="signin">
             <div class="mb-4">
               <label
                 class="block text-gray-700 text-sm font-bold mb-2"
@@ -19,9 +19,11 @@
                 >Email</label
               >
               <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
                 type="email"
                 placeholder="Email"
+                required
+                v-model="user.email"
               />
             </div>
             <div class="mb-4">
@@ -34,7 +36,9 @@
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
                 id="password"
                 type="password"
+                required
                 placeholder="Password"
+                v-model="user.password"
               />
             </div>
             
@@ -48,7 +52,8 @@
                     type="radio"
                     name="userType"
                     value="student"
-                    v-model="userType"
+                    required
+                    v-model="user.user_type"
                     class="form-radio text-blue-500"
                   />
                   <span class="ml-2">Student</span>
@@ -58,7 +63,8 @@
                     type="radio"
                     name="userType"
                     value="staff"
-                    v-model="userType"
+                    required
+                    v-model="user.user_type"
                     class="form-radio text-blue-500"
                   />
                   <span class="ml-2">Staff</span>
@@ -73,7 +79,7 @@
                 Sign In
               </button>
               <nuxt-link to="Signup">
-              <h1 class="hover:text-violet-600 active:text-violet-700 focus:outline-none">Didn't have an account?</h1>
+                <h1 class="hover:text-violet-600 active:text-violet-700 focus:outline-none">Didn't have an account?</h1>
               </nuxt-link>
             </div>
           </form>
@@ -83,11 +89,49 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 export default {
   name: 'SignIn',
+  data() {
+    return {
+      user: {
+        email: "",
+        password: "",
+        user_type: ""
+      }
+    };
+  },
+  methods: {
+    async signin() {
+      try {
+        const response = await fetch("http://localhost:3001/user/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: this.user.email,
+            password: this.user.password,
+            user_type: this.user.user_type
+          }),
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          localStorage.setItem("token", data.jwt);
+          this.$router.push("Dashboard");
+        } else {
+          alert("Wrong email or password.");
+        }
+      } catch (error) {
+        console.log(error);
+        alert("An error occurred. Please try again.");
+      }
+    }
+  }
 }
 </script>
+
 
 <style scoped>
 .bg-brown-500 {

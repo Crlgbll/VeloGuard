@@ -3,14 +3,14 @@
     <navbarAuth />
     <div class="flex justify-end mr-5">
       <h1
-        id="date"
+        ref="dateElement"
         class="text-xl text-white font-bold font-Poppins w-1/5 mt-5 ml-8 border-black border-2 rounded-sm text-center shadow-lg"
       >
         June 14, 2023
       </h1>
       <h1
-        id="time"
-        class="text-xl  font-bold font-Poppins w-1/5 mt-5 ml-8 border-black border-2 rounded-sm text-center shadow-lg"
+        ref="timeElement"
+        class="text-xl font-bold font-Poppins w-1/5 mt-5 ml-8 border-black border-2 rounded-sm text-center shadow-lg"
       >
         Time: 9:47 AM
       </h1>
@@ -30,118 +30,119 @@
     </div>
 
     <div class="justify-around flex">
-      <div class="bg-white m-5 flex-grow">
+      <div class="bg-white ml-2 text-sm flex-grow">
         <table class="w-full border-2">
           <thead>
             <tr>
               <th>Name</th>
               <th>ID Number</th>
+              <th>Year Level</th>
+              <th>Program</th>
+              <th>College</th>
               <th>Item Number</th>
               <th>Time</th>
               <th>Status</th>
+              <th>Admin</th>
             </tr>
           </thead>
           <tbody>
             <!-- Example data for the Checkin table -->
             <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>9:00 AM</td>
+              <td>Meo Angelo Z. Alcantara</td>
+              <td>201-00033</td>
+              <td>3</td>
+              <td>BSIT</td>
+              <td>CCIS</td>
+              <td>D-35</td>
+              <td>9:47 AM</td>
               <td>Checked-in</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
             <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>10:30 AM</td>
+              <td>Carlo Salamanes Gaballo</td>
+              <td>202-00033</td>
+              <td>2</td>
+              <td>BSIT</td>
+              <td>CCIS</td>
+              <td>A-41</td>
+              <td>11:29 AM</td>
               <td>Checked-in</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
             <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>9:00 AM</td>
+              <td>Lowisa Mae Cervantes</td>
+              <td>212-00913</td>
+              <td>1</td>
+              <td>BSPSYCH</td>
+              <td>CHASS</td>
+              <td>E-16</td>
+              <td>11:23 AM</td>
               <td>Checked-in</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
             <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>10:30 AM</td>
+              <td>Mara J. Javier</td>
+              <td>211-00765</td>
+              <td>2</td>
+              <td>CED</td>
+              <td>BSED</td>
+              <td>O-10</td>
+              <td>2:49 AM</td>
               <td>Checked-in</td>
-            </tr>
-            <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>9:00 AM</td>
-              <td>Checked-in</td>
-            </tr>
-            <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>10:30 AM</td>
-              <td>Checked-in</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="bg-black text-white m-5 flex-grow">
+      <div class="bg-black text-white mr-2 text-sm flex-grow">
         <table class="w-full">
           <thead>
             <tr>
               <th>Name</th>
               <th>ID Number</th>
+              <th>Year Level</th>
+              <th>Program</th>
+              <th>College</th>
               <th>Item Number</th>
               <th>Time</th>
               <th>Status</th>
+              <th>Admin</th>
             </tr>
           </thead>
           <tbody>
             <!-- Example data for the Checkout table -->
             <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>5:00 PM</td>
+              <td>Alexa Rae Flores</td>
+              <td>202-00032</td>
+              <td>2</td>
+              <td>BSIT</td>
+              <td>CCIS</td>
+              <td>C-17</td>
+              <td>2:38 PM</td>
               <td>Checked-out</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
             <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>6:30 PM</td>
+              <td>Arvin G. Buena</td>
+              <td>211-00912</td>
+              <td>3</td>
+              <td>BSBIO</td>
+              <td>CMNS</td>
+              <td>L-32</td>
+              <td>10:19 AM</td>
               <td>Checked-out</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
             <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>5:00 PM</td>
+              <td>Noah Clair P. Montero</td>
+              <td>212-98876</td>
+              <td>4</td>
+              <td>BSCE</td>
+              <td>CEGS</td>
+              <td>N-33</td>
+              <td>03:19 PM</td>
               <td>Checked-out</td>
-            </tr>
-            <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>6:30 PM</td>
-              <td>Checked-out</td>
-            </tr>
-            <tr>
-              <td>John Doe</td>
-              <td>123456</td>
-              <td>789</td>
-              <td>5:00 PM</td>
-              <td>Checked-out</td>
-            </tr>
-            <tr>
-              <td>Jane Smith</td>
-              <td>789012</td>
-              <td>123</td>
-              <td>6:30 PM</td>
-              <td>Checked-out</td>
+              <td>Ramon D. Mautganon</td>
             </tr>
           </tbody>
         </table>
@@ -149,6 +150,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   mounted() {
@@ -157,15 +159,17 @@ export default {
   },
   methods: {
     updateDateTime() {
-      const dateElement = document.getElementById('date');
-      const timeElement = document.getElementById('time');
+      const dateElement = this.$refs.dateElement;
+      const timeElement = this.$refs.timeElement;
 
       const currentDate = new Date();
       const date = currentDate.toDateString();
       const time = currentDate.toLocaleTimeString();
 
-      dateElement.innerText = date;
-      timeElement.innerText = 'Time: ' + time;
+      if (dateElement && timeElement) {
+        dateElement.innerText = date;
+        timeElement.innerText = 'Time: ' + time;
+      }
     },
   },
 };
@@ -193,7 +197,7 @@ td {
 .bg-image {
   background-image: url("../assets/images/img-1.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: cover;
   opacity: 80%;
 }
 </style>

@@ -1,18 +1,25 @@
 // db.js
 
-const mysql = require('mysql');
-const express = require('express');
+import mysql from 'mysql'
+import express from 'express';
+import cors from 'cors';
+
+import { userRouter } from '../api/users.js';
 
 const app = express();
+app.use(express.json())
 
-const connection = mysql.createConnection({
+app.use(cors())
+const db = mysql.createConnection({
   host: 'localhost', // Replace with your MySQL host
-  user: 'your_username', // Replace with your MySQL username
-  password: 'your_password', // Replace with your MySQL password
-  database: 'your_database_name' // Replace with your MySQL database name
+  user: 'carlogaballo', // Replace with your MySQL username 
+  password: 'Password1234',// Replace with your MySQL password
+  database: 'veloguard' // Replace with your MySQL database name
 });
 
-connection.connect((error) => {
+app.use("/users", userRouter);
+
+db.connect((error) => {
   if (error) {
     console.error('Error connecting to MySQL:', error);
   } else {
@@ -20,9 +27,8 @@ connection.connect((error) => {
   }
 });
 
-app.use((req, res, next) => {
-  req.db = connection;
-  next();
-});
+app.listen(3001, () => {
+  console.log("server running at port");
+})
 
-module.exports = app;
+export { db }

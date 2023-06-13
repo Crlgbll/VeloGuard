@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="flex items-center justify-center min-h-screen bg-brown-500 font-Poppins">
+    <div
+      class="flex items-center justify-center min-h-screen bg-brown-500 font-Poppins"
+    >
       <div class="max-w-md w-full">
         <div class="bg-white rounded-lg shadow-lg p-8 m-10">
           <img
@@ -11,7 +13,7 @@
           <h2 class="text-xl font-bold mb-4 font-Poppins text-center">
             Sign Up
           </h2>
-          <form>
+          <form @submit.prevent="signup">
             <div class="mb-4">
               <label
                 class="block text-gray-700 text-sm font-bold mb-2"
@@ -20,11 +22,13 @@
               >
               <input
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
-                type="email"
+                type="text"
                 placeholder="Full Name"
+                required
+                v-model="user.name"
               />
             </div>
-            
+
             <div class="mb-4">
               <label
                 class="block text-gray-700 text-sm font-bold mb-2"
@@ -35,6 +39,8 @@
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
                 type="email"
                 placeholder="Carsu Email"
+                required
+                v-model="user.email"
               />
             </div>
             <div class="mb-4">
@@ -48,6 +54,8 @@
                 id="password"
                 type="password"
                 placeholder="Password"
+                required
+                v-model="user.password"
               />
             </div>
 
@@ -59,9 +67,10 @@
                 <label class="inline-flex items-center">
                   <input
                     type="radio"
-                    name="userType"
+                    name="user_type"
                     value="student"
-                    v-model="userType"
+                    v-model="user.user_type"
+                    required
                     class="form-radio text-blue-500"
                   />
                   <span class="ml-2">Student</span>
@@ -69,9 +78,10 @@
                 <label class="inline-flex items-center ml-6">
                   <input
                     type="radio"
-                    name="userType"
+                    name="user_type"
                     value="staff"
-                    v-model="userType"
+                    v-model="user.user_type"
+                    required
                     class="form-radio text-blue-500"
                   />
                   <span class="ml-2">Staff</span>
@@ -81,7 +91,7 @@
             <div class="flex items-center justify-between">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
+                type="submit"
               >
                 Sign Up
               </button>
@@ -100,15 +110,42 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 export default {
-  name: 'SignIn',
+  name: "Signup",
   data() {
     return {
-      userType: '', // Store the selected user type
+      user: {
+        name: "",
+        email: "",
+        password: "",
+        user_type: "",
+      },
     };
   },
-}
+  methods: {
+    async signup() {
+      try {
+        const response = await fetch("http://localhost:3001/user/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.user),
+        });
+        if (response.ok) {
+          this.$router.push("Signin");
+          const data = await response.json();
+          console.log(data);
+        } else {
+          throw new Error("Signup failed");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
