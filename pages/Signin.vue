@@ -22,8 +22,12 @@
                 class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
                 type="email"
                 placeholder="Email"
+<<<<<<< HEAD
                 required
                 v-model="user.email"
+=======
+                v-model="email"
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
               />
             </div>
             <div class="mb-4">
@@ -38,7 +42,11 @@
                 type="password"
                 required
                 placeholder="Password"
+<<<<<<< HEAD
                 v-model="user.password"
+=======
+                v-model="password"
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
               />
             </div>
             
@@ -75,6 +83,7 @@
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
+                @click="signIn"
               >
                 Sign In
               </button>
@@ -83,6 +92,7 @@
               </nuxt-link>
             </div>
           </form>
+
         </div>
       </div>
     </div>
@@ -94,6 +104,7 @@ export default {
   name: 'SignIn',
   data() {
     return {
+<<<<<<< HEAD
       user: {
         email: "",
         password: "",
@@ -129,6 +140,13 @@ export default {
       }
     }
   }
+=======
+      email: '',
+      password: '',
+      userType: 'student'
+    }
+  },
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
 }
 </script>
 

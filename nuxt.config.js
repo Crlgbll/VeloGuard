@@ -50,6 +50,9 @@ export default {
     baseURL: '/',
   },
 
+  serverMiddleware: [
+    '~/api/sign-in.js'
+  ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
      postcss: {

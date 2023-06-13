@@ -1,3 +1,4 @@
+Carlo Salamanes Gaballo
 <template>
   <div>
     <div class="h-18 w-full bg-white flex justify-between items-center px-4 shadow-2xl font-Poppins">
@@ -39,6 +40,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div v-if="isModalOpen" class="modal active">
       <div class="modal-content">
         <span class="close" @click="closeModal">&times;</span>
@@ -117,11 +119,15 @@
         </div>
       </div>
     </div>
+=======
+ 
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
   </div>
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
   data() {
     return {
       isModalOpen: false,
@@ -319,6 +325,10 @@ export default {
       this.searchResults = filteredData;
     },
   },
+=======
+
+
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
 };
 </script>
 
@@ -345,10 +355,16 @@ export default {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
+<<<<<<< HEAD
   border: 3px solid #888;
   width: 100%;
   height: 95%;
   max-width: 800px;
+=======
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
 }
 
 .close {
@@ -400,4 +416,8 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #f5f5f5;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> fee4e7364ed6ad3aab4f6bcb69f782a3eb48ccef
