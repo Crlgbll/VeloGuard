@@ -63,7 +63,7 @@
                     value="student"
                     v-model="userType"
                     class="form-radio text-blue-500"
-                  />
+                      />
                   <span class="ml-2">Student</span>
                 </label>
                 <label class="inline-flex items-center ml-6">
