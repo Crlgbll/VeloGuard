@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center justify-center min-h-screen bg-brown-500">
       <div class="max-w-md w-full bg-white rounded-lg p-8">
-        <img class="mb-5" src="../assets/logo/png/logo-no-background.png" alt="">
+        <img class="mb-5" src="../assets/images/Library.png" alt="">
         <h2 class="text-2xl font-bold mb-4 text-black text-center">Welcome!</h2>
         <div class="mb-4">
           <button class="bg-green-600 hover:bg-green-700 active:bg-green-800 focus:ring focus:ring-violet-200 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline" @click="login">Login</button>

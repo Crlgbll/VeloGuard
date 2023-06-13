@@ -1,3 +1,4 @@
+Carlo Salamanes Gaballo
 <template>
   <div>
     <div
@@ -45,65 +46,14 @@
       </div>
     </div>
 
-    <div v-if="isModalOpen" class="modal">
-      <div class="modal-content" :class="{ active: isModalOpen }">
-        <span class="close" @click="closeModal">&times;</span>
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Enter your search query..."
-        />
-        <button @click="search">Search</button>
-        <div v-if="searchResults.length > 0">
-          <ul>
-            <li v-for="result in searchResults" :key="result.id">
-              {{ result.name }}
-            </li>
-          </ul>
-        </div>
-        <div v-else>
-          <p>No results found.</p>
-        </div>
-      </div>
-    </div>
+ 
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isModalOpen: false,
-      searchQuery: "",
-      searchResults: [],
-    };
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-      this.searchQuery = "";
-      this.searchResults = [];
-    },
-    search() {
-      // Perform the search operation based on the searchQuery
-      // and populate the searchResults array with the matching records
-      // Replace the following code with your actual search logic
 
-      // Simulating the search operation with dummy data
-      const dummyData = [
-        { id: 1, name: "Result 1" },
-        { id: 2, name: "Result 2" },
-        { id: 3, name: "Result 3" },
-      ];
 
-      this.searchResults = dummyData.filter((result) =>
-        result.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    },
-  },
 };
 </script>
 
@@ -120,16 +70,19 @@ export default {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-}
-
-.modal.active {
-  display: block;
+  max-width: 600px;
 }
 
 .close {
@@ -156,5 +109,29 @@ button.hover\:bg-brown-500:hover {
 
 button.hover\:text-white:hover {
   color: white !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
 }
 </style>

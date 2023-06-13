@@ -53,6 +53,9 @@ export default {
     { path: '/api', handler: '~/Backend/middleware/api.js' }
   ],
 
+  serverMiddleware: [
+    '~/api/sign-in.js'
+  ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
      postcss: {

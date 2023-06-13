@@ -19,9 +19,10 @@
                 >Email</label
               >
               <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-black focus:shadow-outline"
                 type="email"
                 placeholder="Email"
+                v-model="email"
               />
             </div>
             <div class="mb-4">
@@ -35,6 +36,7 @@
                 id="password"
                 type="password"
                 placeholder="Password"
+                v-model="password"
               />
             </div>
             
@@ -69,23 +71,32 @@
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
+                @click="signIn"
               >
                 Sign In
               </button>
               <nuxt-link to="Signup">
-              <h1 class="hover:text-violet-600 active:text-violet-700 focus:outline-none">Didn't have an account?</h1>
+                <h1 class="hover:text-violet-600 active:text-violet-700 focus:outline-none">Didn't have an account?</h1>
               </nuxt-link>
             </div>
           </form>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="js">
+<script>
 export default {
   name: 'SignIn',
+  data() {
+    return {
+      email: '',
+      password: '',
+      userType: 'student'
+    }
+  },
 }
 </script>
 

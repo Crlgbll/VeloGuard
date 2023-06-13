@@ -2,17 +2,22 @@
   "name": "VeloGuard",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "server": "nodemon Backend/Database.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "bcrypt": "^5.1.0",
     "core-js": "^3.25.3",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
+    "mysql2": "^3.3.5",
+    "nodemon": "^2.0.22",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
